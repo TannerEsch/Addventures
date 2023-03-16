@@ -19,7 +19,6 @@ const Profiles = (props: any) => {
         <ProfileMathByTopic/>
       </div>
     </div>
-
     </div>
   )
 }

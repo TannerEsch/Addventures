@@ -8,7 +8,7 @@ import meteorgroup from './meteorgroup.png'
 import meteor from "./meteor.png"
 
 const Level3 = (props:any) => {
-const { user, level, setLevel} = props;
+const { user, level} = props;
 const [arrOfNums, setArrOfNums] = useState<number[]>([])
 const navigate = useNavigate()
 const [ranNum, setRanNum] = useState<number[]>([])
@@ -49,9 +49,7 @@ useEffect(() => {
         setOpen([true, 1]) 
         setCurrentQuestion(prev => prev + 1)
         if(currentQuestion == 5) {
-            setSuccessScreen(true)
-            setLevel(prev => prev + 1)
-        }
+            setSuccessScreen(true)}
     } else {
         setOpen([true, 2])
     }

@@ -78,17 +78,17 @@ function App(): JSX.Element {
         <>
             {user && <NavBar user={user} handleLogout={handleLogout} />}
             <Routes>
-                <Route path="/level1" element={<Level1 level={level} setLevel={setLevel}/>} />
-                <Route path="/level2" element={<Level2 level={level} setLevel={setLevel}/>} />
-                <Route path="/level3" element={<Level3 level={level} setLevel={setLevel}/>} />
-                <Route path="/" element={<Landing user={user} />} />
+                <Route path="/level1" element={<Level1/>} />
+                <Route path="/level2" element={<Level2/>} />
+                <Route path="/level3" element={<Level3/>} />
+                <Route path="/" element={<Landing user={user}/>} />
                 <Route path="/worlds" element={<Worlds user={user} />} />
                 <Route path="/signup" element={<Signup handleAuthEvt={handleAuthEvt} />}/>
                 <Route path="/login"element={<Login handleAuthEvt={handleAuthEvt} />}/>
                 <Route path="/profiles" element={<ProtectedRoute user={user}> <Profiles user={user} profile={profile} /></ProtectedRoute> }/>
                 <Route path="/profile" element={<ProtectedRoute user={user}><ProfilePage user={user} profile={profile}/></ProtectedRoute>}/>
                 <Route path="/change-password"  element={<ProtectedRoute user={user}><ChangePassword handleAuthEvt={handleAuthEvt} /></ProtectedRoute>}/>
-                <Route path="/completed" element={<Completed level={level} setLevel={setLevel} />} />
+                <Route path="/completed" element={<Completed  />} />
                  </Routes>   
         </>
     );

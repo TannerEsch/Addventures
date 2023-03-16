@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 
 // types
-import { User } from '../../types/models'
+import { User } from '../../Types/models'
 import Profiles from '../Profiles/Profiles';
 import rocketY from './landingrocket.png'
 
