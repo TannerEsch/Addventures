@@ -88,8 +88,8 @@ function App(): JSX.Element {
                 <Route path="/profiles" element={<ProtectedRoute user={user}> <Profiles user={user} profile={profile} /></ProtectedRoute> }/>
                 <Route path="/profile" element={<ProtectedRoute user={user}><ProfilePage user={user} profile={profile}/></ProtectedRoute>}/>
                 <Route path="/change-password"  element={<ProtectedRoute user={user}><ChangePassword handleAuthEvt={handleAuthEvt} /></ProtectedRoute>}/>
-                <Route path="/completed" element={<Completed  />} />
-                 </Routes>   
+                <Route path="/completed" element={<Completed/>}/>
+            </Routes>   
         </>
     );
 }
