@@ -8,8 +8,8 @@ interface LevelProps {
     // user: User | null;
 }
 
-const Level1 = (props: LevelProps): JSX.Element => {
-    // const { user } = props;
+const Level1 = (props: any): JSX.Element => {
+    const { user, level, setLevel } = props;
     const [completed, setCompleted] = useState(0);
     const [scenario, setScenario] = useState({});
     const [rocketBox, setRocketBox] = useState(["", "", "", "", ""]);

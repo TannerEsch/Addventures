@@ -12,6 +12,7 @@ import './Profile.css'
 
 const ProfilePage = (props: any) => {
   const { user, profile } = props
+  console.log(user, profile)
 
 
   return (

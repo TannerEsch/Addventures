@@ -26,15 +26,14 @@ import * as profileService from '../src/Services/profileService'
 // stylesheets
 import "./css/app.css";
 
-//utils
-import calculate from "./utils/math";
 // types
-import { Profile, User } from "./types/models";
+import { Profile, User } from "./Types/models";
 import Completed from "./pages/Levels/Completed";
 
 function App(): JSX.Element {
-    const [user, setUser] = useState<User | null>(authService.getUser());
+    const [user, setUser] = useState<any>(authService.getUser());
     const navigate = useNavigate();
+    const [level, setLevel] = useState<number>(0)
 
     const handleLogout = (): void => {
         authService.logout();
@@ -46,9 +45,9 @@ function App(): JSX.Element {
         setUser(authService.getUser());
     };
 
-    const profileId = user?.profile.id
+    console.log(authService.getUser()?.profile.id)
 
-  const [profile, setProfile] = useState<Profile>({
+  const [profile, setProfile] = useState<any>({
     name: "",
     userName: "",
     photo: "",
@@ -56,6 +55,8 @@ function App(): JSX.Element {
     createdAt: "",
     updatedAt: "",
   })
+
+  const profileId = user?.profile.id
 
   useEffect((): void => {
     const fetchProfile = async (): Promise<void> => {
@@ -77,17 +78,17 @@ function App(): JSX.Element {
         <>
             {user && <NavBar user={user} handleLogout={handleLogout} />}
             <Routes>
-                <Route path="/level1" element={<Level1 />} />
-                <Route path="/level2" element={<Level2 />} />
-                <Route path="/level3" element={<Level3 />} />
+                <Route path="/level1" element={<Level1 level={level} setLevel={setLevel}/>} />
+                <Route path="/level2" element={<Level2 level={level} setLevel={setLevel}/>} />
+                <Route path="/level3" element={<Level3 level={level} setLevel={setLevel}/>} />
                 <Route path="/" element={<Landing user={user} />} />
                 <Route path="/worlds" element={<Worlds user={user} />} />
                 <Route path="/signup" element={<Signup handleAuthEvt={handleAuthEvt} />}/>
                 <Route path="/login"element={<Login handleAuthEvt={handleAuthEvt} />}/>
-                <Route path="/profiles" element={<ProtectedRoute user={user}><Profiles /></ProtectedRoute>}/>
+                <Route path="/profiles" element={<ProtectedRoute user={user}> <Profiles user={user} profile={profile} /></ProtectedRoute> }/>
                 <Route path="/profile" element={<ProtectedRoute user={user}><ProfilePage user={user} profile={profile}/></ProtectedRoute>}/>
                 <Route path="/change-password"  element={<ProtectedRoute user={user}><ChangePassword handleAuthEvt={handleAuthEvt} /></ProtectedRoute>}/>
-                <Route path="/completed" element={<Completed />} />
+                <Route path="/completed" element={<Completed level={level} setLevel={setLevel} />} />
                  </Routes>   
         </>
     );

@@ -11,8 +11,8 @@ interface LevelProps {
     // user: User | null;
 }
 
-const Level2 = (props: LevelProps): JSX.Element => {
-    // const { user } = props;
+const Level2 = (props: any): JSX.Element => {
+    const { user, level, setLevel } = props;
     const [rounds, setRounds] = useState(1);
     const [completed, setCompleted] = useState(false);
     const [scenario, setScenario] = useState({

@@ -7,7 +7,8 @@ import './Levels.css'
 import meteorgroup from './meteorgroup.png'
 import meteor from "./meteor.png"
 
-const Level3 = () => {
+const Level3 = (props:any) => {
+const { user, level, setLevel} = props;
 const [arrOfNums, setArrOfNums] = useState<number[]>([])
 const navigate = useNavigate()
 const [ranNum, setRanNum] = useState<number[]>([])
@@ -44,12 +45,12 @@ useEffect(() => {
     let answer = ranNum.length + ranNum2.length
     if(selectedNum == answer) {
         setBarStyle(barStyle + 3)
-       
         setXp(prev => prev + 5)
         setOpen([true, 1]) 
         setCurrentQuestion(prev => prev + 1)
         if(currentQuestion == 5) {
             setSuccessScreen(true)
+            setLevel(prev => prev + 1)
         }
     } else {
         setOpen([true, 2])

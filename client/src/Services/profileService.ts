@@ -1,6 +1,5 @@
 // services
 import * as tokenService from './tokenService'
-import axios from 'axios'
 
 // types
 import { Profile } from '../types/models'
@@ -30,9 +29,22 @@ async function getAllProfiles(): Promise<Profile[]> {
   }
 }
 
-async function addPhoto(photoData: any,   profileId: number){
-  let photo = {"photo": photoData, "id": profileId}
-    axios.put(`${BASE_URL}/${profileId}/add-photo`, photo).then(response=> console.log('res', response)).catch(err => console.log("err", err))
+async function addPhoto(
+  photoData: FormData, 
+  profileId: number
+): Promise<string> {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/add-photo`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      body: photoData
+    })
+    return await res.json() as string
+  } catch (error) {
+    throw error
+  }
 }
 
 export { getAllProfiles, addPhoto, getProfile }

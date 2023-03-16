@@ -12,7 +12,6 @@ import { BsArrowLeftShort } from 'react-icons/bs';
 import { FiFlag } from 'react-icons/fi';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { HiOutlineDocumentReport } from 'react-icons/hi';
-
 // services
 import * as authService from '../../Services/authService'
 
@@ -34,23 +33,21 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
   const navigate = useNavigate()
 
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [formData, setFormData] = useState<SignupFormData>({
+  const [formData, setFormData] = useState<any>({
     name: '',
     email: '',
     password: '',
     passwordConf: '',
   })
-  const [photoData, setPhotoData] = useState<any>()
-
-  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (evt: any) => {
     updateMessage('')
-    setFormData({ ...formData, [evt.target.name]: evt.target.value })
+    if(evt?.target){
+          setFormData({ ...formData, [evt.target.name]: evt.target.value })
+    }
+    //  else {
+    //   setFormData({ ...formData, photo: evt })
+    // }
   }
-
-  const handlePhotoChange = (person:any):any => {
-      setPhotoData(person)
-  }
-
 
 
   const handleSubmit = async (evt: React.FormEvent): Promise<void> => {
@@ -58,11 +55,11 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
     if(isSubmitted) return
     try {
       setIsSubmitted(true)
-      await authService.signup(formData, photoData)
+      await authService.signup(formData)
       handleAuthEvt()
       navigate('/')
     } catch (err) {
-      console.log(err)
+      console.log("ooo", err)
       handleErrMsg(err, updateMessage)
       setIsSubmitted(false)
     }
@@ -70,9 +67,6 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
 
   const { name, email, password, passwordConf } = formData
 
-  const isFormInvalid = (): boolean => {
-    return !(name && email && password && password === passwordConf)
-  }
   function changePage(){
     switch(page){
       case 1:
@@ -175,12 +169,12 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
            <h1 className='text-2xl text-center font-nunito font-boldest mt-[-2rem] mb-10'>Choose Your Avatar</h1>
                 <div className='flex flex-col items-center'>
                   <div className="flex p-4"> 
-                    <img src={hannah} onClick={(e) => handlePhotoChange(hannah)} className="outline-yellow-500 hover:outline rounded-[50%]" />
-                    <img src={erick} onClick={(e) => handlePhotoChange(erick)} className="ml-2 outline-yellow-500 hover:outline rounded-[50%]" />
+                    <img src={hannah} onClick={(e) => handleChange(hannah)} className="outline-yellow-500 hover:outline rounded-[50%]" />
+                    <img src={erick} onClick={(e) => handleChange(erick)} className="ml-2 outline-yellow-500 hover:outline rounded-[50%]" />
                   </div>
                   <div className='flex p-4'>
-                    <img src={hansel} onClick={(e) => handlePhotoChange(hansel)} className="mr-1 outline-yellow-500 hover:outline rounded-[55%]"/>
-                    <img src={conan} onClick={(e) => handlePhotoChange(conan)} className="outline-yellow-500 hover:outline rounded-[50%]" />
+                    <img src={hansel} onClick={(e) => handleChange(hansel)} className="mr-1 outline-yellow-500 hover:outline rounded-[55%]"/>
+                    <img src={conan} onClick={(e) => handleChange(conan)} className="outline-yellow-500 hover:outline rounded-[50%]" />
                   </div>
               </div>
               <div className='flex font-nunito font-bolder items-center justify-center mt-12'><TiArrowSync /> Randomize</div>
@@ -193,16 +187,16 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
                 <div className='flex gap-20 w-screen items-center justify-center'>
                   <div className="flex flex-col gap-16"> 
                       <div className="border-orbitOrange border-2 rounded-[50%] w-fit px-2 scale-[2] text-orbitOrange font-nunito text-bolder">K</div>
-                      <div className="border-orbitOrange border-2 rounded-[50%] w-fit px-2 scale-[2] text-orbitOrange font-nunito text-bolder">K</div>
-                      <div className="border-orbitOrange border-2 rounded-[50%] w-fit px-2 scale-[2] text-orbitOrange font-nunito text-bolder">K</div>
+                      <div className="border-orbitOrange border-2 rounded-[50%] w-fit px-2 scale-[2] text-orbitOrange font-nunito text-bolder">2</div>
+                      <div className="border-orbitOrange border-2 rounded-[50%] w-fit px-2 scale-[2] text-orbitOrange font-nunito text-bolder">4</div>
                   </div>
                   <div className="flex flex-col gap-16 mt-[24rem] "> 
-                      <div className="border-orbitOrange border-2 rounded-[50%] w-fit scale-[2] px-2 text-orbitOrange font-nunito text-bolder">K</div>
+                      <div className="border-orbitOrange border-2 rounded-[50%] w-fit scale-[2] px-2 text-orbitOrange font-nunito text-bolder">6</div>
                   </div>
                   <div className="flex flex-col gap-16"> 
-                      <div className="border-orbitOrange border-2 rounded-[50%] w-fit px-2 scale-[2] text-orbitOrange font-nunito text-bolder">K</div>
-                      <div className="border-orbitOrange border-2 rounded-[50%] w-fit px-2 scale-[2] text-orbitOrange font-nunito text-bolder">K</div>
-                      <div className="border-orbitOrange border-2 rounded-[50%] w-fit px-2 scale-[2] text-orbitOrange font-nunito text-bolder">K</div>
+                      <div className="border-orbitOrange border-2 rounded-[50%] w-fit px-2 scale-[2] text-orbitOrange font-nunito text-bolder">1</div>
+                      <div className="border-orbitOrange border-2 rounded-[50%] w-fit px-2 scale-[2] text-orbitOrange font-nunito text-bolder">3</div>
+                      <div className="border-orbitOrange border-2 rounded-[50%] w-fit px-2 scale-[2] text-orbitOrange font-nunito text-bolder">5</div>
                   </div>
               </div>
               </>

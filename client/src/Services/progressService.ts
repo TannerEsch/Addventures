@@ -1,5 +1,5 @@
 // types
-import { Progress } from '../types/models'
+import { Progress } from '../Types/models'
 
 import * as tokenService from './tokenService'
 
