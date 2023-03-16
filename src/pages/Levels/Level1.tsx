@@ -11,6 +11,7 @@ interface LevelProps {
 const Level1 = (props: LevelProps): JSX.Element => {
     // const { user } = props;
     const [completed, setCompleted] = useState(0);
+    const [scenario, setScenario] = useState({});
     const [rocketBox, setRocketBox] = useState(["", "", "", "", ""]);
     const [buttons, setButtons] = useState({
         "1": false,
