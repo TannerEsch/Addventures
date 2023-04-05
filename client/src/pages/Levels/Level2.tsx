@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { User } from "../../types/models";
 import Moon from "./Moon";
 import Planet from "./Planet";
 import PlanetImg from "./PlanetImg.png";
@@ -11,11 +10,19 @@ interface LevelProps {
     // user: User | null;
 }
 
-const Level2 = (props: any): JSX.Element => {
-    const { user, level, setLevel } = props;
+interface Scenario {
+    created: boolean;
+    nMoons: number;
+    moons: any;
+    buttons: any;
+    correct: string;
+}
+
+const Level2 = (props: LevelProps): JSX.Element => {
+    // const { user } = props;
     const [rounds, setRounds] = useState(1);
     const [completed, setCompleted] = useState(false);
-    const [scenario, setScenario] = useState({
+    const [scenario, setScenario] = useState<Scenario>({
         created: false,
         nMoons: 0,
         moons: [],
@@ -25,7 +32,7 @@ const Level2 = (props: any): JSX.Element => {
 
     const [wrong, setWrong] = useState("");
     const planet = <img className="w-52 h-52" src={PlanetImg}></img>;
-    
+
     const moon = Moon;
     const astro = Astro;
     const allMoons = {
@@ -61,7 +68,7 @@ const Level2 = (props: any): JSX.Element => {
             shuffledButtons.push(numbers[randomIndex]);
             numbers.splice(randomIndex, 1);
             if (i < nMoons) {
-                moons.push(allMoons[i]);
+                moons.push(allMoons[i as keyof typeof allMoons]);
             }
         }
 
@@ -111,7 +118,7 @@ const Level2 = (props: any): JSX.Element => {
                 >
                 </svg> */}
                 {planet}
-                {scenario.created && scenario.moons.map((moon) => moon)}
+                {scenario.created && scenario.moons.map((moon: any) => moon)}
             </div>
         </div>
     );
@@ -125,7 +132,7 @@ const Level2 = (props: any): JSX.Element => {
         return (
             <div
                 className={
-                    "flex font-nunito flex-col justify-between items-center py-12 sm:justify-center md:pt-0 h-[100vh] w-full gap-1 success-screen"
+                    "flex font-nunito flex-col justify-between items-center py-12 sm:justify-center md:pt-0 h-[100vh] w-full gap-1 success-screen bg-galaxy"
                 }
             >
                 <div className="text-3xl h-16 text-white">Stellar Work!</div>
@@ -153,7 +160,7 @@ const Level2 = (props: any): JSX.Element => {
                                 onClick={reset}
                                 className="h-12 w-64 rounded-[1rem] text-xl text-white bg-beyondBlue my-20"
                             >
-                                Complete
+                                Continue
                             </button>
                         </>
                     ) : (
@@ -218,7 +225,7 @@ const Level2 = (props: any): JSX.Element => {
                         </div>
                         <div className="flex gap-6 justify-center">
                             {scenario.created &&
-                                scenario.buttons.map((button, i) => (
+                                scenario.buttons.map((button: any, i: number) => (
                                     <button
                                         className={
                                             "rounded h-14 w-10 text-2xl font-bolder " +

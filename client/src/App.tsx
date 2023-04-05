@@ -20,7 +20,7 @@ import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 
 // services
 import * as authService from "./Services/authService";
-import * as profileService from '../src/Services/profileService'
+import * as profileService from "../src/Services/profileService";
 // import * as progressService from '../src/Services/progressService'
 
 // stylesheets
@@ -31,7 +31,7 @@ import { Profile, User } from "./Types/models";
 import Completed from "./pages/Levels/Completed";
 
 function App(): JSX.Element {
-    const [user, setUser] = useState<any>(authService.getUser());
+    const [user, setUser] = useState<User | null>(authService.getUser());
     const navigate = useNavigate();
     const [level, setLevel] = useState<number>(0)
 
@@ -45,51 +45,82 @@ function App(): JSX.Element {
         setUser(authService.getUser());
     };
 
-    console.log(authService.getUser()?.profile.id)
+    const profileId = user?.profile.id;
 
-  const [profile, setProfile] = useState<any>({
-    name: "",
-    userName: "",
-    photo: "",
-    id: 0,
-    createdAt: "",
-    updatedAt: "",
-  })
+    const [profile, setProfile] = useState<Profile>({
+        name: "",
+        userName: "",
+        photo: "",
+        id: 0,
+        createdAt: "",
+        updatedAt: "",
+    });
 
-  const profileId = user?.profile.id
-
-  useEffect((): void => {
-    const fetchProfile = async (): Promise<void> => {
-      try {
-        console.log("profileId", profileId)
-        const profileData: Profile = await profileService.getProfile(profileId)
-        console.log("profileData", profileData)
-        setProfile(profileData)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchProfile()
-  }, [user])
-
-
+    useEffect((): void => {
+        const fetchProfile = async (): Promise<void> => {
+            try {
+                console.log("profileId", profileId);
+                const profileData: Profile = await profileService.getProfile(
+                    profileId
+                );
+                console.log("profileData", profileData);
+                setProfile(profileData);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchProfile();
+    }, [user]);
 
     return (
         <>
             {user && <NavBar user={user} handleLogout={handleLogout} />}
             <Routes>
-                <Route path="/level1" element={<Level1/>}/>
-                <Route path="/level2" element={<Level2/>}/>
-                <Route path="/level3" element={<Level3/>}/>
-                <Route path="/" element={<Landing user={user}/>}/>
-                <Route path="/worlds" element={<Worlds user={user} />} />
-                <Route path="/signup" element={<Signup handleAuthEvt={handleAuthEvt} />}/>
-                <Route path="/login"element={<Login handleAuthEvt={handleAuthEvt} />}/>
-                <Route path="/profiles" element={<ProtectedRoute user={user}> <Profiles user={user} profile={profile} /></ProtectedRoute> }/>
-                <Route path="/profile" element={<ProtectedRoute user={user}><ProfilePage user={user} profile={profile}/></ProtectedRoute>}/>
-                <Route path="/change-password"  element={<ProtectedRoute user={user}><ChangePassword handleAuthEvt={handleAuthEvt} /></ProtectedRoute>}/>
-                <Route path="/completed" element={<Completed/>}/>
-            </Routes>   
+                <Route path="/level1" element={<Level1 />} />
+                <Route path="/level2" element={<Level2 />} />
+                <Route path="/level3" element={<Level3 />} />
+                <Route path="/" element={<Landing user={user} />} />
+                <Route
+                    path="/worlds"
+                    element={<Worlds user={user} setLevel={setLevel} />}
+                />
+                <Route
+                    path="/signup"
+                    element={<Signup handleAuthEvt={handleAuthEvt} />}
+                />
+                <Route
+                    path="/login"
+                    element={<Login handleAuthEvt={handleAuthEvt} />}
+                />
+                <Route
+                    path="/profiles"
+                    element={
+                        <ProtectedRoute user={user}>
+                            <Profiles />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/profile"
+                    element={
+                        <ProtectedRoute user={user}>
+                            <ProfilePage user={user} profile={profile} />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/change-password"
+                    element={
+                        <ProtectedRoute user={user}>
+                            <ChangePassword handleAuthEvt={handleAuthEvt} />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/completed"
+                    element={<Completed level={level} setLevel={setLevel} />}
+                />
+            </Routes>
         </>
     );
 }

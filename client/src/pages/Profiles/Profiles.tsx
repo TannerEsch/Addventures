@@ -1,5 +1,12 @@
 // npm packages
 import { useState, useEffect } from 'react'
+
+// services
+import * as profileService from '../../Services/profileService'
+
+// types
+import { Profile } from '../../Types/models'
+
 import { ProfileDailyChallenge, ProfileFeaturedGames, ProfileMathByTopic } from './ProfileComps'
 
 const Profiles = (props: any) => {
