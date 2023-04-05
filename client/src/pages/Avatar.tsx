@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import av1 from './avatarpics/av1.png'
 import av2 from './avatarpics/av2.png'
 import av3 from './avatarpics/av3.png'
@@ -19,6 +19,8 @@ import glasses from './avatarpics/glasses.png'
 import bg from './avatarpics/bg.png'
 
 const Avatar = () => {
+  const [activeStyle, setActiveStyle] = useState<string | null>(null)
+  const [activeOption, setActiveOption] = useState<number | null>(null)
   return (
     <>    
     <img src={bg} className='absolute z-[-1]' />
@@ -34,23 +36,23 @@ const Avatar = () => {
       </div>
       </div>
     <div className='flex w-screen justify-evenly'>
-      <img src={glasses} className='w-14 h-14 mt-12' />
-      <img src={hair} className='w-14 h-14' />
-      <img src={shirt} className='w-14 h-14 mt-[-2rem]' />
-      <img src={hat} className='w-14 h-14' />
-      <img src={paint} className='w-14 h-14 mt-12' />
+      <img onClick={() => setActiveStyle('glasses')} src={glasses} className={`w-14 h-14 mt-12 ${activeStyle==='glasses'? "scale-[1.5]" : null}`} />
+      <img onClick={() => setActiveStyle('hair')} src={hair} className={`w-14 h-14 mt-[-3px] ${activeStyle==='hair'? "scale-[1.5]" : null}`} />
+      <img onClick={() => setActiveStyle('shirt')} src={shirt} className={`w-14 h-14 mt-[-2rem] ${activeStyle==='shirt'? "scale-[1.5]" : null}`} />
+      <img onClick={() => setActiveStyle('hat')} src={hat} className={`w-14 h-14 mt-[-3px] ${activeStyle==='hat'? "scale-[1.5]" : null}`} />
+      <img onClick={() => setActiveStyle('paint')} src={paint} className={`w-14 h-14 mt-12 ${activeStyle==='paint'? "scale-[1.5]" : null}`} />
     </div>
     <img src={mainpic} className='mx-auto mt-[-4rem]' />
     <div className='bg-orbitOrange grid grid-cols-3 grid-rows-3 gap-4 w-[95vw] place-items-center rounded-3xl p-4 mb-20 '>
-      <img src={av1} className='bg-lightBlue rounded-3xl' />
-      <img src={av2} className='bg-lightBlue rounded-3xl' />
-      <img src={av3} className='bg-lightBlue rounded-3xl' />
-      <img src={av4} className='bg-lightBlue rounded-3xl' />
-      <img src={av5} className='bg-lightBlue rounded-3xl' />
-      <img src={av6} className='bg-lightBlue rounded-3xl' />
-      <img src={av7} className='bg-lightBlue rounded-3xl' />
-      <img src={av8} className='bg-lightBlue rounded-3xl' />
-      <img src={av9} className='bg-lightBlue rounded-3xl' />
+      <img onClick={() => setActiveOption(0)} src={av1} className={`bg-lightBlue rounded-3xl ${activeOption===0? 'outline outline-red-400' :null}`} />
+      <img onClick={() => setActiveOption(1)} src={av2} className={`bg-lightBlue rounded-3xl ${activeOption===1? 'outline outline-red-400' :null}` } />
+      <img onClick={() => setActiveOption(2)} src={av3} className={`bg-lightBlue rounded-3xl ${activeOption===2? 'outline outline-red-400' :null}` } />
+      <img onClick={() => setActiveOption(3)} src={av4} className={`bg-lightBlue rounded-3xl ${activeOption===3? 'outline outline-red-400' :null}` } />
+      <img onClick={() => setActiveOption(4)} src={av5} className={`bg-lightBlue rounded-3xl ${activeOption===4? 'outline outline-red-400' :null}` } />
+      <img onClick={() => setActiveOption(5)} src={av6} className={`bg-lightBlue rounded-3xl ${activeOption===5? 'outline outline-red-400' :null}` } />
+      <img onClick={() => setActiveOption(6)} src={av7} className={`bg-lightBlue rounded-3xl ${activeOption===6? 'outline outline-red-400' :null}` } />
+      <img onClick={() => setActiveOption(7)} src={av8} className={`bg-lightBlue rounded-3xl ${activeOption===7? 'outline outline-red-400' :null}` } />
+      <img onClick={() => setActiveOption(8)} src={av9} className={`bg-lightBlue rounded-3xl ${activeOption===8? 'outline outline-red-400' :null}` } />
     </div>
     </div>
     </>
