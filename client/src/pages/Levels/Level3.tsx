@@ -58,7 +58,8 @@ console.log(typeof barStyle)
         setOpen([true, 1]) 
         setCurrentQuestion(prev => prev + 1)
         if(currentQuestion == 5) {
-            setSuccessScreen(true)}
+            setSuccessScreen(true)
+        }
     } else {
         setOpen([true, 2])
     }

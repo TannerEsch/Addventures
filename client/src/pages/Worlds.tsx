@@ -39,36 +39,48 @@ const Worlds = (props: any): JSX.Element => {
             <div
                 onClick={(e) => navigate("/level6")}
                 className="bg-transparent w-4 h-4 absolute scale-[7.5] left-[15.49rem] top-[5rem] rounded-xl z-10 cursor-pointer"
-            ></div>
+            > 
+            <p className="relative right-[0.7rem] top-1 text-[1.7px] text-center pt-[0.5px] h-fit w-fit px-[1px] font-nunito font-bold text-white bg-black rounded-lg">Addtopia</p> 
+            </div>
             <div
                 onClick={(e) => navigate("/level5")}
                 className="bg-transparent w-4 h-4 z-10 top-[13rem] scale-[5] left-[10rem] rounded-xl absolute"
-            ></div>
+            >
+            <p className="relative left-4 top-2 text-[2.8px] text-center w-fit px-[1.1px] font-nunito font-bold text-white bg-black rounded-lg">Awesomenaut</p>   
+            </div>
             <div
                 onClick={(e) => navigate("/level4")}
                 className="bg-transparent w-4 h-4 z-10 top-[18rem] scale-[6] left-[21rem] rounded-xl absolute"
-            ></div>
+            >
+            <p className="relative right-7 top-2 text-[2.2px] text-center w-6 px-[1px] font-nunito font-bold text-white bg-black rounded-lg">Equation Invasion</p>   
+            </div>
             <div
                 onClick={(e) => {
                     navigate("/level3");
                     props.setLevel(3);
                 }}
                 className="bg-transparent w-4 h-4 z-10 top-[27rem] scale-[7.2] left-[17.3rem] rounded-xl absolute"
-            ></div>
+            >
+            <p className="relative right-6 top-[0.45rem] text-[2px] text-center w-5 px-[1px] font-nunito font-bold text-white bg-black rounded-lg">Meteoroid Party</p>   
+            </div>
             <div
                 onClick={(e) => {
                     navigate("/level2");
                     props.setLevel(2);
                 }}
                 className="bg-transparent w-4 h-4 z-10 top-[33rem] scale-[5] left-[9.3rem] rounded-xl absolute"
-            ></div>
+            >
+            <p className="relative left-5 top-[0.45rem] text-[2.8px] text-center w-6 px-[1px] font-nunito font-bold text-white bg-black rounded-lg">Lunar Landing</p>   
+            </div>
             <div
                 onClick={(e) => {
                     navigate("/level1");
                     props.setLevel(1);
                 }}
                 className="bg-transparent w-4 h-4 z-10 top-[42rem] left-[4.5rem] scale-[5] rounded-xl absolute"
-            ></div>
+            >
+            <p className="relative left-5 top-[0.45rem] text-[3px] text-center w-6 px-[1px] font-nunito font-bold text-white bg-black rounded-lg">Rocket Builder</p>   
+            </div>
             <div className="w-screen h-screen flex overflow-clip">
                 <div className="flex fixed w-screen justify-between p-5 top-1">
                     <div className="bg-gray-800 flex gap-1 rounded-xl w-16 p-1">
