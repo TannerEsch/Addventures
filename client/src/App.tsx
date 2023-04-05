@@ -78,10 +78,10 @@ function App(): JSX.Element {
         <>
             {user && <NavBar user={user} handleLogout={handleLogout} />}
             <Routes>
-                <Route path="/level1" element={<Level1/>} />
-                <Route path="/level2" element={<Level2/>} />
-                <Route path="/level3" element={<Level3/>} />
-                <Route path="/" element={<Landing user={user}/>} />
+                <Route path="/level1" element={<Level1/>}/>
+                <Route path="/level2" element={<Level2/>}/>
+                <Route path="/level3" element={<Level3/>}/>
+                <Route path="/" element={<Landing user={user}/>}/>
                 <Route path="/worlds" element={<Worlds user={user} />} />
                 <Route path="/signup" element={<Signup handleAuthEvt={handleAuthEvt} />}/>
                 <Route path="/login"element={<Login handleAuthEvt={handleAuthEvt} />}/>

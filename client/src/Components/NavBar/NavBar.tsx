@@ -2,7 +2,7 @@
 import { NavLink } from 'react-router-dom'
 
 // types
-import { User } from '../../types/models'
+import { User } from '../../Types/models'
 import { BsGear } from 'react-icons/bs';
 
 //icons
