@@ -5,6 +5,8 @@ import { useEffect, useState } from "react"
 import { Profile } from "../../types/models";
 import mainpic from './mainpic.png'
 
+import bg from './bg.png'
+
 // services
 import * as profileService from '../../Services/profileService'
 
@@ -18,6 +20,7 @@ const ProfilePage = (props: any) => {
 
   return (
     <>
+    <img src={bg} className="absolute z-[-1]" />
     <div className="flex flex-col gap-8 items-center justify-center">
 
     <div className="flex w-screen mt-6">
