@@ -23,6 +23,7 @@ module.exports = {
                 orbitOrange: "#FF9B05",
                 martianMauve: "#DB7373",
                 beyondBlue: "#0D6FCA",
+                lightBlue: "#73BCD3",
                 lunarWhite: "#FEF5EC",
                 valvetNight: "#1E1E1E",
                 asteroidGray: "#D9D9D9",

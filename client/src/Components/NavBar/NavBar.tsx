@@ -36,7 +36,7 @@ const NavBar = (props: NavBarProps): JSX.Element => {
             <>
           <NavLink onClick={()=> setActive(0)} to="/"><img className="scale-[1.3]" src={active == 0? rocketopen : rocketclosed}/> </NavLink>
           <NavLink onClick={()=> setActive(1)} to="/worlds"><img className="scale-[1.3]" src={active == 1? planetopen: planetclosed}/></NavLink>
-          <NavLink onClick={()=> setActive(2)} to="/profiles"><img className="scale-[1.3]" src={active == 2? shirtopen: shirtclosed}/></NavLink>
+          <NavLink onClick={()=> setActive(2)} to="/avatar"><img className="scale-[1.3]" src={active == 2? shirtopen: shirtclosed}/></NavLink>
           <NavLink onClick={()=> setActive(3)} to="/profile"><img className="scale-[1.3]" src={active == 3? astroopen: astroclosed}/></NavLink>
           </>
           :

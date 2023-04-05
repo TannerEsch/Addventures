@@ -13,6 +13,7 @@ import Worlds from "./pages/Worlds";
 import Level1 from "./pages/Levels/Level1";
 import Level2 from "./pages/Levels/Level2";
 import Level3 from "./pages/Levels/Level3";
+import Avatar from "./pages/Avatar";
 
 // components
 import NavBar from "./Components/NavBar/NavBar";
@@ -97,6 +98,14 @@ function App(): JSX.Element {
                     element={
                         <ProtectedRoute user={user}>
                             <Profiles />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/avatar"
+                    element={
+                        <ProtectedRoute user={user}>
+                            <Avatar />
                         </ProtectedRoute>
                     }
                 />
