@@ -1,6 +1,7 @@
 import { useEffect, useState, MouseEvent } from "react";
 import { NavLink } from "react-router-dom";
 import "./Levels.css";
+import bg2 from './bg2.png'
 
 import Rocket from "./Rocket";
 // interface LevelProps {
@@ -137,7 +138,8 @@ const Level1 = (props: any): JSX.Element => {
             </div>
         );
     } else {
-        return (
+        return (<>
+            <img src={bg2} className="absolute z-[-1] h-screen w-screen" />
             <div
                 className={
                     "flex font-nunito flex-col justify-center items-center sm:justify-center md:pt-0 h-[100vh] w-full gap-1 "
@@ -247,6 +249,7 @@ const Level1 = (props: any): JSX.Element => {
                     </>
                 </div>
             </div>
+            </>
         );
     }
 };

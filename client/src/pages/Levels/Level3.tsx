@@ -6,6 +6,7 @@ import chill from './astrochill.png'
 import './Levels.css'
 import meteorgroup from './meteorgroup.png'
 import meteor from "./meteor.png"
+import bg2 from './bg2.png'
 
 const Level3 = (props:any) => {
 const { user, level} = props;
@@ -73,6 +74,7 @@ console.log(typeof barStyle)
 
   return (
     <>
+    <img src={bg2} className="absolute z-[-1] h-screen w-screen" />
     {succesScreen == true?
     <div className="absolute w-screen h-screen flex flex-col items-center z-10 bg-galaxy" id='success-screen'>
         <div className='text-white font-boldest mb-[-4rem] mt-8 text-[3rem]'>Stellar Work!</div>

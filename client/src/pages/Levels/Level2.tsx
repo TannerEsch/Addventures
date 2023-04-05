@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Moon from "./Moon";
 import Planet from "./Planet";
+import bg2 from './bg2.png'
+
 import PlanetImg from "./PlanetImg.png";
 import Astro from "./astroooboy1.png";
 import "./Levels.css";
@@ -174,7 +176,9 @@ const Level2 = (props: LevelProps): JSX.Element => {
             </div>
         );
     } else {
-        return (
+        return ( 
+        <>
+            <img src={bg2} className="absolute z-[-1] h-screen w-screen" />
             <div
                 className={
                     "flex font-nunito flex-col justify-start items-center sm:justify-center pt-12 md:pt-0 h-[100vh] w-full gap-1 "
@@ -244,6 +248,7 @@ const Level2 = (props: LevelProps): JSX.Element => {
                     </>
                 </div>
             </div>
+            </>
         );
     }
 };

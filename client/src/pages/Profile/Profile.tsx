@@ -23,7 +23,7 @@ const ProfilePage = (props: any) => {
 
   return (
     <>
-    <img src={bg} className="absolute z-[-1]" />
+    <img src={bg} className="absolute z-[-1] h-screen w-screen" />
     <div className="flex flex-col gap-8 items-center justify-center">
 
     <div className="flex w-screen mt-6">
