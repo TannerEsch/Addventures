@@ -8,6 +8,7 @@ import mainpic from './mainpic.png'
 import bg from './bg.png'
 import moon from './moon.png'
 import star from './star.png'
+import badge from './badge.png'
 
 // services
 import * as profileService from '../../Services/profileService'
@@ -33,9 +34,15 @@ const ProfilePage = (props: any) => {
         <img src={mainpic} className="w-24 ml-auto mr-4 mt-1 h-24"/>
       </div>
 
-      <div className="flex w-screen justify-around">
-        <img src="/xp.png" alt="" />
-        <img src="/score.png" alt="" />
+      <div className='flex justify-between w-screen px-10 mt-[-1rem]'>
+      <div className='bg-valvetNight w-fit gap-2 rounded-xl h-fit p-1 text-white font-bold flex'>
+        <img src={moon} />
+        <p>333 xp</p>
+      </div>
+      <div className='bg-valvetNight w-16 gap-2 rounded-xl h-fit p-1 text-white font-bold flex'>
+        <img src={star}/>
+        <p>3</p>
+      </div>
       </div>
 
       <div className="font-bold font-nunito text-2xl">
@@ -69,7 +76,52 @@ const ProfilePage = (props: any) => {
 
       <div className="font-bold font-nunito text-2xl">
         <h1>Achievements</h1>
-        <img src="/achievements.png" alt="" />
+        <div className="bg-valvetNight h-56 w-[90vw] rounded-3xl overflow-y-scroll ">
+
+        <div className="flex font-bold items-center justify-center text-white text-[1.3rem] border-b-gray-300 border-b-2">
+          <img src={badge} className="w-12 h-12 mr-auto ml-4" />
+          <div className="mr-auto">
+          <p>Achievement name</p>
+          <p>Achievement description</p>
+          </div>
+        </div>
+        <div className="flex font-bold items-center justify-center text-white text-[1.3rem] border-b-gray-300 border-b-2">
+          <img src={badge} className="w-12 h-12 mr-auto ml-4" />
+          <div className="mr-auto">
+          <p>Achievement name</p>
+          <p>Achievement description</p>
+          </div>
+        </div>
+        <div className="flex font-bold items-center justify-center text-white text-[1.3rem] border-b-gray-300 border-b-2">
+          <img src={badge} className="w-12 h-12 mr-auto ml-4" />
+          <div className="mr-auto">
+          <p>Achievement name</p>
+          <p>Achievement description</p>
+          </div>
+        </div>
+        <div className="flex font-bold items-center justify-center text-white text-[1.3rem] border-b-gray-300 border-b-2">
+          <img src={badge} className="w-12 h-12 mr-auto ml-4" />
+          <div className="mr-auto">
+          <p>Achievement name</p>
+          <p>Achievement description</p>
+          </div>
+        </div>
+        <div className="flex font-bold items-center justify-center text-white text-[1.3rem] border-b-gray-300 border-b-2">
+          <img src={badge} className="w-12 h-12 mr-auto ml-4" />
+          <div className="mr-auto">
+          <p>Achievement name</p>
+          <p>Achievement description</p>
+          </div>
+        </div>
+        <div className="flex font-bold items-center justify-center text-white text-[1.3rem] border-b-gray-300 border-b-2">
+          <img src={badge} className="w-12 h-12 mr-auto ml-4" />
+          <div className="mr-auto">
+          <p>Achievement name</p>
+          <p>Achievement description</p>
+          </div>
+        </div>
+
+        </div>
       </div>
       </div>
     </>
