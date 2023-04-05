@@ -16,7 +16,7 @@ const [ranNum2, setRanNum2] = useState<number[]>([])
 const [selectedNum, setSelectedNum] = useState<number>()
 const [xp, setXp] = useState<number>(0)
 const [open, setOpen] = useState<any[]>([])
-const [barStyle, setBarStyle] = useState<string>('1')
+const [barStyle, setBarStyle] = useState<number>(0)
 const [currentQuestion, setCurrentQuestion] = useState<number>(1)
 const [succesScreen, setSuccessScreen] = useState<boolean>(false)
 
@@ -49,18 +49,17 @@ useEffect(() => {
     setRanNum(meteorArray)
     setRanNum2(meteorArray2)
  }, [xp])
-
+console.log(typeof barStyle)
  function checkAnswer() {
     let answer = ranNum.length + ranNum2.length
     if(selectedNum == answer) {
-        setBarStyle(prev => (parseInt(prev) + 3).toString())
+        setBarStyle(prev => prev + 3)
         setXp(prev => prev + 5)
         setOpen([true, 1]) 
         setCurrentQuestion(prev => prev + 1)
         if(currentQuestion == 5) {
             setSuccessScreen(true)}
     } else {
-        console.log('2')
         setOpen([true, 2])
     }
  }
@@ -86,7 +85,7 @@ useEffect(() => {
         <div className='text-center mt-[-4rem] bg-valvetNight rounded-xl p-1 w-fit text-white font-nunito font-bolder mx-auto'>XP {xp}</div>
         <div className='mx-20 mt-2 w-screen'>
         <div className='absolute bg-gray-200 w-[16rem] h-2 rounded-xl'></div>
-        <div className={`absolute bg-valvetNight w-[${barStyle}rem] h-2 rounded-xl`}></div>
+        <div style={{width: barStyle+"rem"}} className={`absolute bg-valvetNight h-2 rounded-xl`}></div>
         </div>
         <div className='flex justify-center items-center flex-col p-4'>
         <div className='flex flex-wrap'>
