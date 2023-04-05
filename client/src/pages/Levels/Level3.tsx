@@ -16,7 +16,7 @@ const [ranNum2, setRanNum2] = useState<number[]>([])
 const [selectedNum, setSelectedNum] = useState<number>()
 const [xp, setXp] = useState<number>(0)
 const [open, setOpen] = useState<any[]>([])
-const [barStyle, setBarStyle] = useState<number>(1)
+const [barStyle, setBarStyle] = useState<string>('1')
 const [currentQuestion, setCurrentQuestion] = useState<number>(1)
 const [succesScreen, setSuccessScreen] = useState<boolean>(false)
 
@@ -25,6 +25,7 @@ useEffect(() => {
     let meteorArray2:number[] = []              
     let numArray:number[] = []
     let rando = Math.floor(Math.random() * 5 + 1)
+    let rando3 = Math.floor(Math.random() * 5)
     let rando2 = Math.floor(Math.random() * 5 + 1 )
         for(let i=0; i < rando; i++){
             meteorArray.push(1)
@@ -36,7 +37,15 @@ useEffect(() => {
         numArray.push(Math.floor(Math.random() * 10))  
     }
     numArray.push(meteorArray.length + meteorArray2.length)
-     setArrOfNums(numArray)
+    numArray.splice(numArray.indexOf(numArray[rando3]), 0, numArray[numArray.length-1])
+    numArray.pop()
+    if(numArray.indexOf(meteorArray.length + meteorArray2.length) === numArray.lastIndexOf(meteorArray.length + meteorArray2.length)) {
+        setArrOfNums(numArray)
+    } else {
+       let filteredMap = numArray.filter(num => num == meteorArray.length + meteorArray2.length ) 
+       numArray.splice(numArray.indexOf(filteredMap[0]), 1, filteredMap[1]+1)
+         setArrOfNums(numArray)
+    }
     setRanNum(meteorArray)
     setRanNum2(meteorArray2)
  }, [xp])
@@ -44,13 +53,14 @@ useEffect(() => {
  function checkAnswer() {
     let answer = ranNum.length + ranNum2.length
     if(selectedNum == answer) {
-        setBarStyle(barStyle + 3)
+        setBarStyle(prev => (parseInt(prev) + 3).toString())
         setXp(prev => prev + 5)
         setOpen([true, 1]) 
         setCurrentQuestion(prev => prev + 1)
         if(currentQuestion == 5) {
             setSuccessScreen(true)}
     } else {
+        console.log('2')
         setOpen([true, 2])
     }
  }
