@@ -7,6 +7,8 @@ import * as profileService from '../../Services/profileService'
 // types
 import { Profile } from '../../Types/models'
 
+import mainpic from './mainpic.png'
+
 import { ProfileDailyChallenge, ProfileFeaturedGames, ProfileMathByTopic } from './ProfileComps'
 
 const Profiles = (props: any) => {
@@ -16,7 +18,7 @@ const Profiles = (props: any) => {
     <div className='bg-orbit px-5'>     
       <div className='flex items-center'>
         <div className='text-[35px] font-nunito'>Welcome back!</div>
-        <img src="" alt="" className='rounded-[50%] border-black border-[1px] w-20 h-20 ml-auto m-4'></img>
+        <img src={mainpic} alt="" className='rounded-[50%] border-black border-[1px] w-20 h-20 ml-auto m-4'></img>
       </div>
 
     <div className="flex flex-col gap-4 xs:items-center">
