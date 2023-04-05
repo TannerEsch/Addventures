@@ -25,7 +25,7 @@ const Avatar = () => {
     <>    
     <img src={bg} className='absolute z-[-1]' />
     <div className='flex flex-col w-screen h-screen gap-3 justify-center items-center'>
-      <div className='flex gap-52 mt-[-2rem] mb-10'>
+      <div className='flex gap-52 mt-[-2rem] mb-10 xxs:mt-0 xxs:mb-2'>
       <div className='bg-valvetNight w-fit gap-2 rounded-xl h-fit p-1 text-white font-bold flex'>
         <img src={moon} />
         <p>333 xp</p>
@@ -43,7 +43,7 @@ const Avatar = () => {
       <img onClick={() => setActiveStyle('paint')} src={paint} className={`w-14 h-14 mt-12 ${activeStyle==='paint'? "scale-[1.5]" : null}`} />
     </div>
     <img src={mainpic} className='mx-auto mt-[-4rem]' />
-    <div className='bg-orbitOrange grid grid-cols-3 grid-rows-3 gap-4 w-[95vw] place-items-center rounded-3xl p-4 mb-20 '>
+    <div className='bg-orbitOrange grid grid-cols-3 grid-rows-3 gap-4 w-[95vw] place-items-center rounded-3xl p-4 mb-20 xxs:mb-28'>
       <img onClick={() => setActiveOption(0)} src={av1} className={`bg-lightBlue rounded-3xl ${activeOption===0? 'outline outline-red-400' :null}`} />
       <img onClick={() => setActiveOption(1)} src={av2} className={`bg-lightBlue rounded-3xl ${activeOption===1? 'outline outline-red-400' :null}` } />
       <img onClick={() => setActiveOption(2)} src={av3} className={`bg-lightBlue rounded-3xl ${activeOption===2? 'outline outline-red-400' :null}` } />

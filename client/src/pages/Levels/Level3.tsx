@@ -103,7 +103,7 @@ console.log(typeof barStyle)
         </div>
     </div> 
         <div className='flex w-screen gap-[2rem] justify-center absolute bottom-[15rem]'>
-            {arrOfNums?.map((n) => <><div onClick={(e) => setSelectedNum(n)}className='bg-asteroidGray rounded-lg p-2 h-16 w-10 hover:bg-gray-400 text-center pt-5 font-bolder text-xl font-nunito'>{n}</div></>)}
+            {arrOfNums?.map((n) => <><div onClick={(e) => setSelectedNum(n)}className='bg-asteroidGray rounded-lg p-2 h-16 w-10 hover:bg-gray-400 text-center pt-5 font-bolder text-xl font-nunito xxs:mb-[-2rem]'>{n}</div></>)}
         </div>
         <div className='w-screen flex justify-center'>
         <div onClick={(e) => checkAnswer()} className='absolute bottom-[8rem] cursor-pointer bg-beyondBlue rounded-xl text-white font-nunito font-bolder text-center w-fit p-4 px-10'>Check Answer</div>

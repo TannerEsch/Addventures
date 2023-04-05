@@ -31,13 +31,13 @@ const NavBar = (props: NavBarProps): JSX.Element => {
     
     <div className="flex items-center justify-center">
       
-  <div className='fixed flex w-[96%] bottom-0 gap-12 justify-center p-4 text-3xl border-gray-400 bg-valvetNight border-[1px] mb-8 rounded-[100px] shadow-2xl'>
+  <div className='fixed flex w-[96%] bottom-0 gap-12 sm:h-24 sm:bottom-[-1.5rem] justify-center p-4 3xs:p-1 text-3xl border-gray-400 bg-valvetNight border-[1px] mb-8 3xs:mb-0 rounded-[100px] shadow-2xl'>
     {user?
             <>
-          <NavLink onClick={()=> setActive(0)} to="/"><img className="scale-[1.3]" src={active == 0? rocketopen : rocketclosed}/> </NavLink>
-          <NavLink onClick={()=> setActive(1)} to="/worlds"><img className="scale-[1.3]" src={active == 1? planetopen: planetclosed}/></NavLink>
-          <NavLink onClick={()=> setActive(2)} to="/avatar"><img className="scale-[1.3]" src={active == 2? shirtopen: shirtclosed}/></NavLink>
-          <NavLink onClick={()=> setActive(3)} to="/profile"><img className="scale-[1.3]" src={active == 3? astroopen: astroclosed}/></NavLink>
+          <NavLink onClick={()=> setActive(0)} to="/"><img className="scale-[1.3] 3xs:scale-10 sm:mt-[-5px] sm:scale-100" src={active == 0? rocketopen : rocketclosed}/> </NavLink>
+          <NavLink onClick={()=> setActive(1)} to="/worlds"><img className="scale-[1.3] 3xs:scale-100 sm:mt-[-5px] sm:scale-100" src={active == 1? planetopen: planetclosed}/></NavLink>
+          <NavLink onClick={()=> setActive(2)} to="/avatar"><img className="scale-[1.3] 3xs:scale-100 sm:mt-[-5px] sm:scale-100" src={active == 2? shirtopen: shirtclosed}/></NavLink>
+          <NavLink onClick={()=> setActive(3)} to="/profile"><img className="scale-[1.3] 3xs:scale-100 sm:mt-[-5px] sm:scale-100" src={active == 3? astroopen: astroclosed}/></NavLink>
           </>
           :
           <> 

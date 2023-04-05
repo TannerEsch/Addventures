@@ -75,8 +75,8 @@ const ProfilePage = (props: any) => {
         </div>
 
       <div className="font-bold font-nunito text-2xl">
-        <h1>Achievements</h1>
-        <div className="bg-valvetNight h-56 w-[90vw] rounded-3xl overflow-y-scroll ">
+        <h1 className="xxs:mt-[-1rem]">Achievements</h1>
+        <div className="bg-valvetNight h-56 w-[90vw] rounded-3xl overflow-y-scroll">
 
         <div className="flex font-bold items-center justify-center text-white text-[1.3rem] border-b-gray-300 border-b-2">
           <img src={badge} className="w-12 h-12 mr-auto ml-4" />
