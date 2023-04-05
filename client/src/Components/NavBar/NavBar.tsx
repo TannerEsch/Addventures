@@ -1,15 +1,21 @@
+import React, { useState } from 'react'
 // npm modules
 import { NavLink } from 'react-router-dom'
 
 // types
 import { User } from '../../Types/models'
-import { BsGear } from 'react-icons/bs';
 
-//icons
-import { BsFillPersonFill } from 'react-icons/bs';
-import { AiFillHome } from 'react-icons/ai';
-import { TbSwords } from 'react-icons/tb';
-import { CgMathDivide } from 'react-icons/cg';
+import astroclosed from './navbaricons/astroclosed.png'
+import astroopen from './navbaricons/astroopen.png'
+
+import planetopen from './navbaricons/planetopen.png'
+import planetclosed from './navbaricons/planetclosed.png'
+
+import shirtopen from './navbaricons/shirtopen.png'
+import shirtclosed from './navbaricons/shirtclosed.png'
+
+import rocketopen from './navbaricons/rocketopen.png'
+import rocketclosed from './navbaricons/rocketclosed.png'
 
 
 interface NavBarProps {
@@ -18,20 +24,20 @@ interface NavBarProps {
 }
 
 const NavBar = (props: NavBarProps): JSX.Element => {
+  const [active, setActive] = useState<number>(0)
   const { user, handleLogout } = props
   
   return <>
     
     <div className="flex items-center justify-center">
       
-  <div className='fixed flex w-[96%] bottom-0 gap-12 justify-center p-4 text-3xl border-gray-400 bg-gray-300 border-[1px] mb-8 rounded-[100px] shadow-2xl'>
+  <div className='fixed flex w-[96%] bottom-0 gap-12 justify-center p-4 text-3xl border-gray-400 bg-valvetNight border-[1px] mb-8 rounded-[100px] shadow-2xl'>
     {user?
             <>
-          <NavLink to="/"><AiFillHome/></NavLink>
-          <NavLink to="/worlds"><CgMathDivide/></NavLink>
-          <NavLink to="/profiles"><TbSwords/></NavLink>
-          <NavLink to="/profiles" onClick={(e)=> handleLogout()}><BsGear/></NavLink>
-          <NavLink to="/profile"><BsFillPersonFill/></NavLink>
+          <NavLink onClick={()=> setActive(0)} to="/"><img className="scale-[1.3]" src={active == 0? rocketopen : rocketclosed}/> </NavLink>
+          <NavLink onClick={()=> setActive(1)} to="/worlds"><img className="scale-[1.3]" src={active == 1? planetopen: planetclosed}/></NavLink>
+          <NavLink onClick={()=> setActive(2)} to="/profiles"><img className="scale-[1.3]" src={active == 2? shirtopen: shirtclosed}/></NavLink>
+          <NavLink onClick={()=> setActive(3)} to="/profile"><img className="scale-[1.3]" src={active == 3? astroopen: astroclosed}/></NavLink>
           </>
           :
           <> 
